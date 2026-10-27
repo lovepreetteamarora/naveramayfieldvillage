@@ -41,3 +41,14 @@ The existing Sites project remains the publishing target. GitHub is the source r
 ## Activation status
 
 The server integration is implemented and locally tested. Supabase project registration and production activation are pending a renewed Supabase authorization. The currently published site retains its existing email-preparation flow until activation is verified. See `research/supabase-connection-status.md`.
+
+## Vercel deployment
+
+The repository includes `vercel.json` with the **Other** framework preset,
+`npm run build:vercel` as the build command, and `public` as the output directory.
+The build copies `site/` into `public/`; Vercel detects `api/register.js` as a
+Node.js Function. `lib/registration.js` is shared with the original Sites build.
+
+Set `LEAD_API_URL`, `LEAD_API_TOKEN`, and `LEAD_IP_SALT` in Vercel's production
+runtime environment once the Navera Supabase project registration is active.
+Do not put their values in the static files or in `vercel.json`.

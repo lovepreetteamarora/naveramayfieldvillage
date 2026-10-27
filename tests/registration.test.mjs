@@ -1,6 +1,6 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';import {webcrypto} from 'node:crypto';
 globalThis.crypto??=webcrypto;
-const source=(await readFile('worker/index.js','utf8')).replace('__PUBLIC_ASSETS__','{}');const {register}=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
+const {register}=await import('../lib/registration.js');
 const env={LEAD_API_URL:'https://example.com/lead',LEAD_API_TOKEN:'server-test-token',LEAD_IP_SALT:'server-test-salt'};
 const valid={firstName:'Integration',lastName:'Test',email:'test@example.com',phone:'4165550123',isRealtor:'no',workingWithRealtor:'No',interest:'First Time Home Buyer',heardAbout:'Website',consent:true,smsConsent:false,pageUrl:'https://naveramayfieldhomes.com/?utm_source=test&gclid=private'};
 const request=(body,origin='https://naveramayfieldhomes.com')=>new Request('https://naveramayfieldhomes.com/api/register',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin,'cf-connecting-ip':'192.0.2.1'},body:JSON.stringify(body)});
@@ -9,3 +9,5 @@ test('invalid form and disallowed origin never reach database',async()=>{let cal
 test('database rejection and network failure cannot return success',async()=>{for(const mock of [async()=>new Response(null,{status:401}),async()=>{throw Error('offline')}]){const r=await register(request(valid),env,mock);assert.equal(r.status,503);assert.notEqual((await r.json()).leadAccepted,true)}});
 test('honeypot does not create a record or emit accepted status',async()=>{const r=await register(request({...valid,website:'spam'}),env,()=>{throw Error('must not call')});assert.equal((await r.json()).leadAccepted,false)});
 test('unconfigured backend and oversized input fail safely',async()=>{assert.equal((await register(request(valid),{})).status,503);assert.equal((await register(request({...valid,extra:'x'.repeat(14000)}),env)).status,413)});
+test('accepts the exact Vercel deployment origin from trusted runtime configuration',async()=>{const r=await register(request({...valid,email:'vercel-test@example.com'},'https://naveramayfieldvillage-ab123.vercel.app'),{...env,VERCEL_URL:'naveramayfieldvillage-ab123.vercel.app'},async()=>new Response(null,{status:201}));assert.equal(r.status,200);assert.equal((await r.json()).leadAccepted,true)});
+test('does not trust a different Vercel project origin',async()=>{const r=await register(request(valid,'https://another-site.vercel.app'),{...env,VERCEL_URL:'naveramayfieldvillage-ab123.vercel.app'},()=>{throw Error('must not call')});assert.equal(r.status,403)});
