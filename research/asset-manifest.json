@@ -1,0 +1,83 @@
+[
+  {
+    "name": "aerial",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Navera%20%20Brampton/Navera_aerial_High_Res_v3.png",
+    "dimensions": [
+      1294,
+      715
+    ],
+    "retrieved": "2026-10-27"
+  },
+  {
+    "name": "family",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Navera%20%20Brampton/happy_family_3.png",
+    "dimensions": [
+      1499,
+      891
+    ],
+    "retrieved": "2026-10-27"
+  },
+  {
+    "name": "family-life",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Navera%20%20Brampton/shutterstock_660426148.jpg",
+    "dimensions": [
+      1224,
+      888
+    ],
+    "retrieved": "2026-10-27"
+  },
+  {
+    "name": "park",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Navera%20%20Brampton/DSC_3782_copy.jpg",
+    "dimensions": [
+      717,
+      713
+    ],
+    "retrieved": "2026-10-27"
+  },
+  {
+    "name": "neighbourhood",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Navera%20%20Brampton/DSC_3835.jpg",
+    "dimensions": [
+      719,
+      713
+    ],
+    "retrieved": "2026-10-27"
+  },
+  {
+    "name": "community",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Navera%20%20Brampton/DSC_3921.jpg",
+    "dimensions": [
+      719,
+      713
+    ],
+    "retrieved": "2026-10-27"
+  },
+  {
+    "name": "trails",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Navera%20%20Brampton/DSC_3790_copy.jpg",
+    "dimensions": [
+      717,
+      713
+    ],
+    "retrieved": "2026-10-27"
+  },
+  {
+    "name": "navera-logo",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Navera%20%20Brampton/Navera_blk.png",
+    "dimensions": [
+      649,
+      165
+    ],
+    "retrieved": "2026-10-27"
+  },
+  {
+    "name": "digreen-logo",
+    "source": "https://ss3.nyc3.digitaloceanspaces.com/bh-prod/6414bb89310def21c386e246/Website%20Content/Branding_DG_Colour.png",
+    "dimensions": [
+      896,
+      331
+    ],
+    "retrieved": "2026-10-27"
+  }
+]
