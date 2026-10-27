@@ -1,3 +1,7 @@
 .openai/local/
 .DS_Store
 *.tar.gz
+
+.env*
+!.env.example
+dist/
