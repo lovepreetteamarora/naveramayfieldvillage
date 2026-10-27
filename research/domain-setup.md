@@ -13,6 +13,6 @@ Required records returned by hosting (DNS only, not Cloudflare proxy, unless the
 
 Before changing A records, inspect current DNS configuration and preserve email-related MX/TXT records. Replace only conflicting website A/AAAA records. Refresh domain verification after DNS propagation. No DNS writes have been performed. Cloudflare dashboard requires sign-in in the available browser session.
 
-Private deployed preview: https://navera-mayfield-homes.nutmegox16.chatgpt.site
+Public deployed website: https://navera-mayfield-homes.nutmegox16.chatgpt.site
 Source commit: a6acad81415fecf2fdcab84beef6775d2727e26e
-Hosting deployment succeeded. Public access confirmation requested; not yet granted.
+Hosting deployment succeeded. User approved public access; hosting access_mode confirmed public October 27, 2026. Public HTML returned HTTP 200 with curl.
